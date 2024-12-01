@@ -12,13 +12,6 @@ public class EnigmaFrame extends JFrame {
     private JComboBox<Integer> mid;
     private JComboBox<Integer> outer;
 
-    // JLabel inner = new JLabel("Inner");
-    // JLabel middle = new JLabel("Middle");
-    // JLabel out = new JLabel("Out");
-    // JLabel initialpos = new JLabel("Initial Positions");
-    // JLabel input = new JLabel("Input");
-    // JLabel output = new JLabel("Output");
-
     private JButton encrypt;
     private JButton decrypt;
 
@@ -30,20 +23,17 @@ public class EnigmaFrame extends JFrame {
     };
 
     public EnigmaFrame(){
-        //super();
         setTitle("Enigma GUI");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(700,300);
         setLayout(new BorderLayout());
 
-        startingChar = new JTextField(3);//("EST", 5)
+        startingChar = new JTextField(3);
 
         in = new JComboBox<Integer>(rotornums); 
         mid = new JComboBox<Integer>(rotornums);
         outer = new JComboBox<Integer>(rotornums);
-        //toValue.setEditable(false);
 
-        //three panels to make things look better
 
         JPanel upperPanel = new JPanel(new FlowLayout());
         upperPanel.add(new JLabel("Inner"));
