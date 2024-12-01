@@ -57,24 +57,7 @@ public class EnigmaFrame extends JFrame {
         upperPanel.add(startingChar);
        
 
-        encrypt = new JButton ("Encrypt");//needs event listener
-        decrypt = new JButton ("Decrypt");//needs event listener 
-        upperPanel.add(encrypt);
-        upperPanel.add(decrypt);
-
-        JPanel middlePanel = new JPanel(new FlowLayout());
-        middlePanel.add(new JLabel("Input"));
-        inputText = new JTextArea(5,30);
-        middlePanel.add(inputText);
-
-        JPanel bottomPanel = new JPanel(new FlowLayout());
-        bottomPanel.add(new JLabel("Output"));
-        outputText = new JTextArea(5,30);
-        bottomPanel.add(outputText);
-
-        add(upperPanel, BorderLayout.NORTH);
-        add(middlePanel, BorderLayout.CENTER);
-        add(bottomPanel, BorderLayout.SOUTH);
+        encrypt = new JButton ("Encrypt");
 
         encrypt.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -91,6 +74,8 @@ public class EnigmaFrame extends JFrame {
             }
         });
 
+        decrypt = new JButton ("Decrypt");
+
         decrypt.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String input = inputText.getText();
@@ -105,6 +90,23 @@ public class EnigmaFrame extends JFrame {
                 outputText.setText(decrypted);
             }
         });
+
+        upperPanel.add(encrypt);
+        upperPanel.add(decrypt);
+
+        JPanel middlePanel = new JPanel(new FlowLayout());
+        middlePanel.add(new JLabel("Input"));
+        inputText = new JTextArea(5,30);
+        middlePanel.add(inputText);
+
+        JPanel bottomPanel = new JPanel(new FlowLayout());
+        bottomPanel.add(new JLabel("Output"));
+        outputText = new JTextArea(5,30);
+        bottomPanel.add(outputText);
+
+        add(upperPanel, BorderLayout.NORTH);
+        add(middlePanel, BorderLayout.CENTER);
+        add(bottomPanel, BorderLayout.SOUTH);
 
     }
     
