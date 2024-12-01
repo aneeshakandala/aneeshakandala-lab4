@@ -76,11 +76,36 @@ public class EnigmaFrame extends JFrame {
         add(middlePanel, BorderLayout.CENTER);
         add(bottomPanel, BorderLayout.SOUTH);
 
-    }
+        encrypt.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String input = inputText.getText();
+                String initialpos = startingChar.getText();
+                int innerRotor = (int) in.getSelectedItem();
+                int middleRotor = (int) mid.getSelectedItem();
+                int outerRotor = (int) outer.getSelectedItem();
 
-    public static  void main(String args[]){
-        EnigmaFrame e = new EnigmaFrame();
-        e.setVisible(true);
+                Enigma enigma = new Enigma (innerRotor, middleRotor, outerRotor, initialpos);
+
+                String encrypted = enigma.encrypt(input);
+                outputText.setText(encrypted);
+            }
+        });
+
+        decrypt.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                String input = inputText.getText();
+                String initialpos = startingChar.getText();
+                int innerRotor = (int) in.getSelectedItem();
+                int middleRotor = (int) mid.getSelectedItem();
+                int outerRotor = (int) outer.getSelectedItem();
+
+                Enigma enigma = new Enigma (innerRotor, middleRotor, outerRotor, initialpos);
+
+                String decrypted = enigma.decrypt(input);
+                outputText.setText(decrypted);
+            }
+        });
+
     }
     
 
